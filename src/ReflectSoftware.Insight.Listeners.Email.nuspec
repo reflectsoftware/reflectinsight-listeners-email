@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+    <metadata>
+        <id>ReflectSoftware.Insight.Listeners.Email</id>
+        <version>5.4.0</version>
+        <title>ReflectSoftware.Insight.Listeners.Email</title>
+        <authors>ReflectSoftware Inc.</authors>
+        <owners>ReflectSoftware Inc.</owners>
+        <licenseUrl>http://www.reflectsoftware.com/Public/Try/LicenseAgreement.aspx</licenseUrl>
+        <projectUrl>http://reflectsoftware.com</projectUrl>
+        <iconUrl>http://reflectsoftware.com/images/ri_logo_green.ico</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>We've added a new destination listener extension for ReflectInsight for sending emails. This new destination listener extension is called ReflectSoftware.Insight.Listeners.Email and allows you to send logging messages via email. This is typically done for Exceptions, Errors and Fatal messages types where you might want to be notified via email if something went wrong in your application.
+
+Traditional simple text base logging frameworks lack what your application can easily emit in providing you better insight into the health of your application. Wouldn’t it be great to easily instrument incredible rich details? Well, look no further. ReflectInsight was designed to easily let your application speak volumes!
+
+One of ReflectInsight’s most powerful features is its impressive and elegant Viewer. The Viewer was design to hone in on particular issues and filter any unwanted noise by creating User Defined Views. User Defined Views allow you to filter a given request and visualize the execution path that actually caused the issue at hand. 
+
+Everyone knows that debugging multithread applications is no simple task. Due to racing conditions, traditional IDE debuggers are not well suited for the job and don’t really provide an accurate picture behind the scenes. With ReflectInsight’s Live Viewer, debugging multithread applications is that much easier!
+
+In order to use this library you must have the ReflectInsight Viewer installed. Download and install the ReflectInsight Viewer from this location: 
+
+http://www.ReflectSoftware.com/Public/Download.aspx
+
+You can view your messages in realtime, in a rich viewer that allows you to filter out and search for what really matters to you.</description>
+        <summary>ReflectInsight - The Next Generation in Application Logging.
+
+ReflectInsight goes beyond where no text-based logging has gone before.</summary>
+        <releaseNotes>As of version 5.1 of the ReflectInsight NuGet Package, you are now required to manually add in the ReflectInsight configuration details that you may require. 
+
+For help on configuration, please see our documentation on the website (https://insightextensions.codeplex.com/wikipage?title=Getting%20Started%20with%20Email%20Listener%20Extension&amp;referringTitle=Documentation) and/or the knowledgebase articles on our UserVoice site (http://reflectsoftware.uservoice.com/knowledgebase).</releaseNotes>
+        <copyright>© 2014 ReflectSoftware Inc.</copyright>
+        <tags>Email .NET Diagnostic Debug Trace Logging Extensions ReflectInsight Appender Log Tracing RabbitMQ</tags>
+        <dependencies>
+            <dependency id="ReflectSoftware.Insight" version="5.4.0" />
+        </dependencies>
+        <references>
+            <reference file="ReflectSoftware.Insight.Listeners.Email.dll" />
+        </references>
+    </metadata>
+    <files>        
+        <file src="..\Build\Libraries\NET2.0\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net20\ReflectSoftware.Insight.Listeners.Email.dll" />
+        <file src="..\Build\Libraries\NET4.0\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net40\ReflectSoftware.Insight.Listeners.Email.dll" />
+        <file src="..\Build\Libraries\NET4.5\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net45\ReflectSoftware.Insight.Listeners.Email.dll" />        
+        <file src="readme.txt" target="readme.txt" />
+    </files>
+</package>
