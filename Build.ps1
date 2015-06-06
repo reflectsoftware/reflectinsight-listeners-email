@@ -1,9 +1,9 @@
 param(
-    [String] $majorMinor = "0.0",  # 2.0
+    [String] $majorMinor = "0.0",  # 5.5
     [String] $patch = "0",         # $env:APPVEYOR_BUILD_VERSION
     [String] $customLogger = "",   # C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll
     [Switch] $notouch,
-    [String] $sln                  # e.g ReflectInsight-Extension-Name
+    [String] $project = "ReflectSoftware.Insight.Listeners.Email"
 )
 
 function Set-AssemblyVersions($informational, $assembly)
@@ -49,12 +49,16 @@ function Invoke-NuGetPack($version)
         ForEach-Object { Invoke-NuGetPackProj $_ }
 }
 
-function Invoke-Build($majorMinor, $patch, $customLogger, $notouch, $sln)
+function Invoke-Build($project, $majorMinor, $patch, $customLogger, $notouch)
 {
-    $package="$majorMinor.$patch"
-    $slnfile = "$sln.sln"
+    $solution2 = "$project 2.0.sln" 
+    $solution4 = "$project 4.0.sln" 
+    $solution4CP = "$project 4.0 CP.sln" 
+    $solution45 = "$project 4.5.sln" 
 
-    Write-Output "$sln $package"
+    $package="$majorMinor.$patch"
+
+    Write-Output "Building $project $package"
 
     if (-not $notouch)
     {
@@ -64,23 +68,26 @@ function Invoke-Build($majorMinor, $patch, $customLogger, $notouch, $sln)
         Set-AssemblyVersions $package $assembly
     }
 
-    Install-NuGetPackages $slnfile
+    Install-NuGetPackages $solution45
     
-    Invoke-MSBuild $slnfile $customLogger
+    Invoke-MSBuild $solution45 $customLogger
+    Invoke-MSBuild $solution4CP $customLogger
+    Invoke-MSBuild $solution4 $customLogger
+    Invoke-MSBuild $solution2 $customLogger
 
     Invoke-NuGetPack $package
 }
 
 $ErrorActionPreference = "Stop"
 
-if (-not $sln)
-{
-    $slnfull = ls *.sln |
-        Where-Object { -not ($_.Name -like "*net40*") } |
-        Select -first 1
+#if (-not $sln)
+#{
+#    $slnfull = ls *.sln |
+#        Where-Object { -not ($_.Name -like "*net40*") } |
+#        Select -first 1
+#
+#    $sln = $slnfull.BaseName
+#}
 
-    $sln = $slnfull.BaseName
-}
-
-Invoke-Build $majorMinor $patch $customLogger $notouch $sln
+Invoke-Build $project $majorMinor $patch $customLogger $notouch
 

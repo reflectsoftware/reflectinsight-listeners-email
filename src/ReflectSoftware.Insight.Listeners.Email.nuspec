@@ -39,9 +39,12 @@ For help on configuration, please see our documentation on the website (https://
         </references>
     </metadata>
     <files>        
-        <file src="..\Build\Libraries\NET2.0\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net20\ReflectSoftware.Insight.Listeners.Email.dll" />
-        <file src="..\Build\Libraries\NET4.0\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net40\ReflectSoftware.Insight.Listeners.Email.dll" />
-        <file src="..\Build\Libraries\NET4.5\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net45\ReflectSoftware.Insight.Listeners.Email.dll" />        
+        <file src="..\Build\Libraries\NET2.0\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net20" />
+		<file src="..\Build\Libraries\NET2.0\ReflectSoftware.Insight.Listeners.Email.xml" target="lib\net20" />
+        <file src="..\Build\Libraries\NET4.0\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net40" />
+		<file src="..\Build\Libraries\NET4.0\ReflectSoftware.Insight.Listeners.Email.xml" target="lib\net40" />
+        <file src="..\Build\Libraries\NET4.5\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net45" />   
+		<file src="..\Build\Libraries\NET4.5\ReflectSoftware.Insight.Listeners.Email.xml" target="lib\net45" />		
         <file src="readme.txt" target="readme.txt" />
     </files>
 </package>

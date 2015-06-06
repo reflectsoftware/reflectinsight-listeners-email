@@ -2,6 +2,7 @@
 
 [![Build status](https://img.shields.io/appveyor/ci/reflectsoftware/reflectinsight-listeners-email.svg)](https://ci.appveyor.com/project/reflectsoftware/reflectinsight-listeners-email)
 [![Release](https://img.shields.io/github/release/reflectsoftware/reflectinsight-listeners-email.svg)](https://github.com/reflectsoftware/reflectinsight-listeners-email/releases/latest)
+[![NuGet Version](http://img.shields.io/nuget/v/reflectsoftware.insight.listeners.email.svg?style=flat)](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/)
 [![NuGet](https://img.shields.io/nuget/dt/reflectsoftware.insight.listeners.email.svg)](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/)
 [![Stars](https://img.shields.io/github/stars/reflectsoftware/reflectinsight-listeners-email.svg)](https://github.com/reflectsoftware/reflectinsight-listeners-email/stargazers)
 
