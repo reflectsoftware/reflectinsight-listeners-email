@@ -5,7 +5,10 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solutions Items", "_Solutions Items", "{2167B44B-F569-4087-83B3-6E1AA9BB1A31}"
 	ProjectSection(SolutionItems) = preProject
-		License.rtf = License.rtf
+		Build.ps1 = Build.ps1
+		CHANGES.md = CHANGES.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectSoftware.Insight.Listeners.Email 4.0 CP", "src\ReflectSoftware.Insight.Listeners.Email 4.0 CP.csproj", "{513CF9FA-76A1-49A0-ACDB-B1452382A480}"

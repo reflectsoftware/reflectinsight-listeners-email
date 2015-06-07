@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3D65AB1E-A19C-411F-A76B-94900C68DF1B}</ProjectGuid>
+    <ProjectGuid>{513CF9FA-76A1-49A0-ACDB-B1452382A480}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReflectSoftware.Insight.Listeners</RootNamespace>
