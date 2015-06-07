@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectSoftware.Insight.Listeners.Email 4.5", "src\ReflectSoftware.Insight.Listeners.Email 4.5.csproj", "{513CF9FA-76A1-49A0-ACDB-B1452382A480}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectSoftware.Insight.Listeners.Email 4.0", "src\ReflectSoftware.Insight.Listeners.Email 4.0.csproj", "{3D65AB1E-A19C-411F-A76B-94900C68DF1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{513CF9FA-76A1-49A0-ACDB-B1452382A480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{513CF9FA-76A1-49A0-ACDB-B1452382A480}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{513CF9FA-76A1-49A0-ACDB-B1452382A480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D65AB1E-A19C-411F-A76B-94900C68DF1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D65AB1E-A19C-411F-A76B-94900C68DF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D65AB1E-A19C-411F-A76B-94900C68DF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D65AB1E-A19C-411F-A76B-94900C68DF1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

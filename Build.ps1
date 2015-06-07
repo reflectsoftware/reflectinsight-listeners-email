@@ -1,5 +1,5 @@
 param(
-    [String] $majorMinor = "0.0",  # 5.5
+    [String] $majorMinor = "5.5",  # 5.5
     [String] $patch = "0",         # $env:APPVEYOR_BUILD_VERSION
     [String] $customLogger = "",   # C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll
     [Switch] $notouch,
@@ -8,11 +8,11 @@ param(
 
 function Set-AssemblyVersions($informational, $assembly)
 {
-    (Get-Content assets/VersionInfo.cs.cs) |
+    (Get-Content assets/VersionInfo.cs) |
         ForEach-Object { $_ -replace """1.0.0.0""", """$assembly""" } |
         ForEach-Object { $_ -replace """1.0.0""", """$informational""" } |
         ForEach-Object { $_ -replace """1.1.1.1""", """$($informational).0""" } |
-        Set-Content assets/VersionInfo.cs.cs
+        Set-Content assets/VersionInfo.cs
 }
 
 function Install-NuGetPackages($solution)
@@ -68,11 +68,16 @@ function Invoke-Build($project, $majorMinor, $patch, $customLogger, $notouch)
         Set-AssemblyVersions $package $assembly
     }
 
-    Install-NuGetPackages $solution45
-    
+    Install-NuGetPackages $solution45    
     Invoke-MSBuild $solution45 $customLogger
+	
+	Install-NuGetPackages $solution4CP    
     Invoke-MSBuild $solution4CP $customLogger
+	
+	Install-NuGetPackages $solution4    
     Invoke-MSBuild $solution4 $customLogger
+	
+	Install-NuGetPackages $solution2    
     Invoke-MSBuild $solution2 $customLogger
 
     Invoke-NuGetPack $package
