@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
     <metadata>
         <id>ReflectSoftware.Insight.Listeners.Email</id>
-        <version>5.4.0</version>
+        <version>$version$</version>
         <title>ReflectSoftware.Insight.Listeners.Email</title>
         <authors>ReflectSoftware Inc.</authors>
         <owners>ReflectSoftware Inc.</owners>
