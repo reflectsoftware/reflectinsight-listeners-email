@@ -16,7 +16,83 @@ The benefits to using the Insight Listeners is that you can easily and quickly a
 
 ## Getting Started
 
-Coming soon...
+To install ReflectSoftware.Insight.Listeners.Email listener, run the following command in the Package Manager Console:
+
+```powershell
+Install-Package ReflectSoftware.Insight.Listeners.Email
+```
+Then in your app.config or web.config file, add the following configuration sections:
+
+```xml
+<configuration>
+  <configSections>        
+		<section name="insightSettings" type="ReflectSoftware.Insight.ConfigurationHandler,ReflectSoftware.Insight"/>
+	</configSections>
+	
+	<insightSettings>
+    <listeners>
+      <listener name="Email" type="ReflectSoftware.Insight.Listeners.ListenerEmail, ReflectSoftware.Insight.Listeners.Email"/>
+    </listeners>
+
+    <emailDetails>
+      <details name="emailDetails1">
+        <IsHtml>True</IsHtml>
+        <toAddresses>YourEmail@Address.com</toAddresses>
+        <ccAddresses></ccAddresses>
+        <bccAddresses></bccAddresses>
+        <subject>Application Alert: %message%</subject>
+        <priority>High</priority>
+        <body>
+          <![CDATA[
+          The following error was detected in application: '%application%'<br/><br/>          
+          Message Type: %messagetype% 
+			    Category:     %category% 
+			    Computer:     %machine% 
+			    Sender Id:    %senderid% 
+			    Request Id:   %requestid% 
+			    Process Id:   %processid% 
+			    Thread Id:    %threadid% 
+			    Domain Id:    %domainid% 
+			    Application:  %application% 
+			    User Domain:  %userdomain% 
+			    Username:     %username%
+                            Timestamp:    %time% or %time{dd-MM-yyyy hh:mm:ss.fff}%
+          <b>%message%</b><br/><br/>  
+          <b>%details%</b><br/><br/>
+          Please call technical support: 1-888-555-5555
+          ]]>
+        </body>
+      </details>
+    </emailDetails>
+
+    <listenerGroups active="Active">
+      <group name="Active" enabled="true" maskIdentities="false">
+        <destinations>
+          <destination name="Email" enabled="true" filter="ErrorWarningFilter" details="Email[details=emailDetails1]"/>
+        </destinations>
+      </group>
+    </listenerGroups>
+    
+    <filters>
+      <filter name="ErrorWarningFilter" mode="Include">
+        <method type="SendError"/>
+        <method type="SendException"/>
+        <method type="SendFatal"/>
+      </filter>
+    </filters>
+  </insightSettings>
+	
+	<system.net>
+		<mailSettings>
+			<smtp from="ReflectInsight@demo.com">
+				<network host="smtpserver1" port="25" userName="username" password="secret" defaultCredentials="true"/>
+			</smtp>
+		</mailSettings>
+	</system.net>
+</configuration>
+```
+
+Additional configuration details for the ReflectSoftware.Insight.Listeners.Email listener can be found [here](https://reflectsoftware.atlassian.net/wiki/display/RI5/Email+Listener).
 
 ## Additional Resources
 
