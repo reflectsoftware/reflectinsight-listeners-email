@@ -24,12 +24,13 @@ Install-Package ReflectSoftware.Insight.Listeners.Email
 Then in your app.config or web.config file, add the following configuration sections:
 
 ```xml
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <configSections>        
-		<section name="insightSettings" type="ReflectSoftware.Insight.ConfigurationHandler,ReflectSoftware.Insight"/>
-	</configSections>
+    <section name="insightSettings" type="ReflectSoftware.Insight.ConfigurationHandler,ReflectSoftware.Insight"/>
+  </configSections>
 	
-	<insightSettings>
+  <insightSettings>
     <listeners>
       <listener name="Email" type="ReflectSoftware.Insight.Listeners.ListenerEmail, ReflectSoftware.Insight.Listeners.Email"/>
     </listeners>
