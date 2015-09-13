@@ -8,7 +8,7 @@
         <owners>ReflectSoftware Inc.</owners>
         <licenseUrl>https://github.com/reflectsoftware/reflectinsight-listeners-email/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/reflectsoftware/reflectinsight-listeners-email</projectUrl>
-        <iconUrl>http://reflectsoftware.com/images/ri_logo_green.ico</iconUrl>
+        <iconUrl>http://reflectsoftware.com/images/ReflectInsight-Element-256.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>We've added a new destination listener extension for ReflectInsight for sending emails. This new destination listener extension is called ReflectSoftware.Insight.Listeners.Email and allows you to send logging messages via email. This is typically done for Exceptions, Errors and Fatal messages types where you might want to be notified via email if something went wrong in your application.
 
