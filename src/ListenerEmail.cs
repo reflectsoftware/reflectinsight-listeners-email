@@ -12,6 +12,7 @@ namespace ReflectSoftware.Insight.Listeners
 {
     internal class ListenerEmail : IReflectInsightListener
 	{
+        private Boolean SendAsync { get; set; }
         private String ToAddresses { get; set; }
         private String CcAddresses { get; set; }
         private String BccAddresses { get; set; }
@@ -22,43 +23,57 @@ namespace ReflectSoftware.Insight.Listeners
         private List<String> SubjectTimePatterns { get; set; }
         private List<String> BodyTimePatterns { get; set; }
 
-        ///--------------------------------------------------------------------
+        //---------------------------------------------------------------------
         public void UpdateParameterVariables(IListenerInfo listener)
         {
             String details = listener.Params["details"];
             if (StringHelper.IsNullOrEmpty(details))
+            {
                 throw new ReflectInsightException(String.Format("Missing details parameter for listener: '{0}' using details: '{1}'.", listener.Name, listener.Details));
+            }
 
             ConfigNode settings = new ConfigNode(ReflectInsightConfig.Settings.XmlSection);
             if (!settings.IsSectionSet)
+            {
                 throw new ReflectInsightException(String.Format("Cannot find Email Details node '{0}' in configuration settings.", details));
+            }
 
             ConfigNode emailSettings = settings.GetConfigNode(String.Format("./emailDetails/details[@name='{0}']", details));
             if (emailSettings == null || !emailSettings.IsSectionSet)
+            {
                 throw new ReflectInsightException(String.Format("Cannot find Email Details node '{0}' in configuration settings.", details));
+            }
 
             ToAddresses = emailSettings.GetNodeInnerText("toAddresses", String.Empty).Replace(";", ",");
             if (StringHelper.IsNullOrEmpty(ToAddresses))
+            {
                 throw new ReflectInsightException(String.Format("toAddresses node text value for Email Details '{0}' in configuration settings is required.", details));
+            }
 
+            emailSettings = settings.GetConfigNode(String.Format("./emailDetails/details[@name='{0}']", details));
+            
             CcAddresses = emailSettings.GetNodeInnerText("ccAddresses", String.Empty).Replace(";", ",");
             BccAddresses = emailSettings.GetNodeInnerText("bccAddresses", String.Empty).Replace(";", ",");
             Subject = emailSettings.GetNodeInnerText("subject");
             Body = emailSettings.GetNodeInnerText("body");
+            SendAsync = emailSettings.GetNodeInnerText("Async").Trim().ToLower() != "false";
             IsHtml = emailSettings.GetNodeInnerText("IsHtml").Trim().ToLower() == "true";
 
             String sPriority = emailSettings.GetNodeInnerText("priority").ToLower().Trim();
             Priority = MailPriority.Normal;
             if (sPriority == "high")
+            {
                 Priority = MailPriority.High;
+            }
             else if (sPriority == "low")
+            {
                 Priority = MailPriority.Low;
+            }
 
             SubjectTimePatterns = RIUtils.GetListOfTimePatterns(Subject);
             BodyTimePatterns = RIUtils.GetListOfTimePatterns(Body);
         }
-
-        ///--------------------------------------------------------------------
+        //---------------------------------------------------------------------
         public void Receive(ReflectInsightPackage[] messages)
         {
             #if NET20
@@ -67,12 +82,17 @@ namespace ReflectSoftware.Insight.Listeners
             using (SmtpClient client = new SmtpClient())
             #endif
             {
-                foreach (ReflectInsightPackage package in messages)
+                foreach (ReflectInsightPackage message in messages)
                 {
-                    String details = String.Empty;
-                    if (package.IsDetail<DetailContainerString>())
+                    if (message.FMessageType == MessageType.Clear || RIUtils.IsViewerSpecificMessageType(message.FMessageType))
                     {
-                        details = package.GetDetails<DetailContainerString>().FData;
+                        continue;
+                    }
+                    
+                    String details = String.Empty;
+                    if (message.IsDetail<DetailContainerString>())
+                    {
+                        details = message.GetDetails<DetailContainerString>().FData;
                         if (IsHtml)
                         {
                             details = details.Replace(Environment.NewLine, "<br/>");
@@ -84,16 +104,30 @@ namespace ReflectSoftware.Insight.Listeners
                         email.IsBodyHtml = IsHtml;
                         email.Priority = Priority;
                         email.To.Add(ToAddresses);
-                        email.Subject = RIUtils.PrepareString(Subject, package, String.Empty, SubjectTimePatterns);
-                        email.Body = RIUtils.PrepareString(Body, package, details, BodyTimePatterns);
+                        email.Subject = RIUtils.PrepareString(Subject, message, String.Empty, SubjectTimePatterns);
+                        email.Body = RIUtils.PrepareString(Body, message, details, BodyTimePatterns);
                         
-                        if (!StringHelper.IsNullOrEmpty(CcAddresses)) email.CC.Add(CcAddresses);
-                        if (!StringHelper.IsNullOrEmpty(BccAddresses)) email.Bcc.Add(CcAddresses);
+                        if (!StringHelper.IsNullOrEmpty(CcAddresses)) 
+                        {
+                            email.CC.Add(CcAddresses);
+                        }
 
-                        #if NET45
-                        client.SendAsync(email, null);
-                        #else
+                        if (!StringHelper.IsNullOrEmpty(BccAddresses)) 
+                        {
+                            email.Bcc.Add(CcAddresses);
+                        }
+
+                        #if NET20
                         client.Send(email);
+                        #else
+                        if (SendAsync)
+                        {
+                            client.SendAsync(email, null);
+                        }
+                        else
+                        {
+                            client.Send(email);
+                        }
                         #endif
                     }
                 }
