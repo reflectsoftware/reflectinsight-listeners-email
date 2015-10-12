@@ -1,5 +1,7 @@
 ## Change Log ##
 
+#### Version 5.5.3 ####
+ * New feature in email details configuration. Can now explicitly set whether to send emails using async if in .NET 4.5. Default is true. 
 #### Version 5.5.1 ####
  * Bug fixes for packages improperly being downloaded. RabbitMQ is now a nuget dependency.
  
