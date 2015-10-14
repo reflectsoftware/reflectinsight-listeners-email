@@ -59,9 +59,9 @@ function Invoke-NuGetPack($version)
 
 function Invoke-Build($project, $majorMinor, $patch, $customLogger, $notouch)
 {
-    #$solution2 = "$project 2.0.sln" 
-    #$solution4 = "$project 4.0.sln" 
-    #$solution4CP = "$project 4.0 CP.sln" 
+    $solution2 = "$project 2.0.sln" 
+    $solution4 = "$project 4.0.sln" 
+    $solution4CP = "$project 4.0 CP.sln" 
     $solution45 = "$project 4.5.sln" 
 
     $package="$majorMinor.$patch"
