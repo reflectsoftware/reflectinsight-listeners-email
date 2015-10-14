@@ -37,6 +37,7 @@ Then in your app.config or web.config file, add the following configuration sect
 
     <emailDetails>
       <details name="emailDetails1">
+        <Async>True</Async>
         <IsHtml>True</IsHtml>
         <toAddresses>YourEmail@Address.com</toAddresses>
         <ccAddresses></ccAddresses>
