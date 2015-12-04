@@ -9,4 +9,4 @@ using System.Reflection;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyVersion("5.5.3.1510")]
 [assembly: AssemblyFileVersion("5.5.3.1510")]
-[assembly: AssemblyInformationalVersion("5.5.")]
+[assembly: AssemblyInformationalVersion("5.5.3")]
