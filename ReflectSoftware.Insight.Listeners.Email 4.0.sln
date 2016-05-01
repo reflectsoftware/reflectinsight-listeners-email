@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solution Items", "{A7136D3D-F25F-44B5-95E7-F0A664BBC5CE}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Solution Items", "_Solutio
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReflectSoftware.Insight.Listeners.Email 4.0", "src\ReflectSoftware.Insight.Listeners.Email 4.0.csproj", "{513CF9FA-76A1-49A0-ACDB-B1452382A480}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E953318F-E83C-43A3-89C1-A98AFD0CC7BB}"
+	ProjectSection(SolutionItems) = preProject
+		src\ReflectSoftware.Insight.Listeners.Email.nuspec = src\ReflectSoftware.Insight.Listeners.Email.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,5 +31,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E953318F-E83C-43A3-89C1-A98AFD0CC7BB} = {A7136D3D-F25F-44B5-95E7-F0A664BBC5CE}
 	EndGlobalSection
 EndGlobal
