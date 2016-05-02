@@ -60,8 +60,8 @@ function Invoke-NuGetPack($version)
 
 function Invoke-Build($project, $majorMinor, $patch, $customLogger, $notouch)
 {
-    $solution2 = "$project 2.0.sln"
-    $solution4 = "$project 4.0.sln"
+    #$solution2 = "$project 2.0.sln"
+    #$solution4 = "$project 4.0.sln"
     #$solution4CP = "$project 4.0 CP.sln"
     $solution45 = "$project 4.5.sln"
 
@@ -83,11 +83,11 @@ function Invoke-Build($project, $majorMinor, $patch, $customLogger, $notouch)
 	#Install-NuGetPackages $solution4CP
     #Invoke-MSBuild $solution4CP $customLogger
 
-	Install-NuGetPackages $solution4
-    Invoke-MSBuild $solution4 $customLogger
+	#Install-NuGetPackages $solution4
+    #Invoke-MSBuild $solution4 $customLogger
 
-	Install-NuGetPackages $solution2
-    Invoke-MSBuild $solution2 $customLogger
+	#Install-NuGetPackages $solution2
+    #Invoke-MSBuild $solution2 $customLogger
 
     Invoke-NuGetPack $package
 }

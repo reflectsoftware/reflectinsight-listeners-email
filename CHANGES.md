@@ -2,7 +2,8 @@
 
 #### Version 5.6.0 ####
  * Updated extension to use ReflectInsight 5.6.0 version
-
+ * Dropping support for older .NET versions. As of this release, we're only deploying NuGet package for .NET 4.5. However the source code still supports older framework. 
+ 
 #### Version 5.5.3 ####
  * New feature in email details configuration. Can now explicitly set whether to send emails using async if in .NET 4.5. Default is true. 
 

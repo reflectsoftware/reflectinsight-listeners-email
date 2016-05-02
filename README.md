@@ -6,6 +6,8 @@
 [![NuGet Version](http://img.shields.io/nuget/v/reflectsoftware.insight.listeners.email.svg?style=flat)](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/)
 [![Stars](https://img.shields.io/github/stars/reflectsoftware/reflectinsight-listeners-email.svg)](https://github.com/reflectsoftware/reflectinsight-listeners-email/stargazers)
 
+**Package** - [ReflectSoftware.Insight.Listeners.Email](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/) | **Platforms** - .NET 4.5
+
 ## Overview ##
 
 We've added a new destination listener extension for ReflectInsight for sending emails. This new destination listener extension is called ReflectSoftware.Insight.Listeners.Email and allows you to send logging messages via email. This is typically done for Exceptions, Errors and Fatal messages types where you might want to be notified via email if something went wrong in your application.
