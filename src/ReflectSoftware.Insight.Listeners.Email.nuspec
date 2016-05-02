@@ -37,8 +37,8 @@ ReflectInsight goes beyond where no text-based logging has gone before.</summary
         </references>
     </metadata>
     <files>
-        <file src="bin\release\net20\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net20" />
-        <file src="bin\release\net40\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net40" />
+        <!--<file src="bin\release\net20\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net20" />
+        <file src="bin\release\net40\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net40" />-->
         <file src="bin\release\net45\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net45" />
     </files>
 </package>
