@@ -23,7 +23,12 @@ namespace ReflectSoftware.Insight.Listeners
         private List<String> SubjectTimePatterns { get; set; }
         private List<String> BodyTimePatterns { get; set; }
 
-        //---------------------------------------------------------------------
+        /// <summary>
+        /// Updates the parameter variables.
+        /// </summary>
+        /// <param name="listener">The listener.</param>
+        /// <exception cref="ReflectInsightException">
+        /// </exception>
         public void UpdateParameterVariables(IListenerInfo listener)
         {
             String details = listener.Params["details"];
@@ -73,7 +78,11 @@ namespace ReflectSoftware.Insight.Listeners
             SubjectTimePatterns = RIUtils.GetListOfTimePatterns(Subject);
             BodyTimePatterns = RIUtils.GetListOfTimePatterns(Body);
         }
-        //---------------------------------------------------------------------
+
+        /// <summary>
+        /// Receives the specified messages.
+        /// </summary>
+        /// <param name="messages">The messages.</param>
         public void Receive(ReflectInsightPackage[] messages)
         {
             #if NET20

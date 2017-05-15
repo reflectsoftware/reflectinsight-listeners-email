@@ -27,18 +27,16 @@ You can view your messages in realtime, in a rich viewer that allows you to filt
 
 ReflectInsight goes beyond where no text-based logging has gone before.</summary>
         <releaseNotes></releaseNotes>
-        <copyright>© 2016 ReflectSoftware Inc.</copyright>
+        <copyright>© 2017 ReflectSoftware Inc.</copyright>
         <tags>reflectinsight logging log logfiles events exception handling structured tracing trace debug diagnostic email smtp</tags>
         <dependencies>
-            <dependency id="ReflectSoftware.Insight" version="5.6.1.2" />
+            <dependency id="ReflectSoftware.Insight" version="5.7.0.0" />
         </dependencies>
         <references>
             <reference file="ReflectSoftware.Insight.Listeners.Email.dll" />
         </references>
     </metadata>
     <files>
-        <!--<file src="bin\release\net20\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net20" />
-        <file src="bin\release\net40\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net40" />-->
         <file src="bin\release\net45\ReflectSoftware.Insight.Listeners.Email.dll" target="lib\net45" />
     </files>
 </package>
