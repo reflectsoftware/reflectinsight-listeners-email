@@ -6,7 +6,7 @@
 [![NuGet Version](http://img.shields.io/nuget/v/reflectsoftware.insight.listeners.email.svg?style=flat)](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/)
 [![Stars](https://img.shields.io/github/stars/reflectsoftware/reflectinsight-listeners-email.svg)](https://github.com/reflectsoftware/reflectinsight-listeners-email/stargazers)
 
-**Package** - [ReflectSoftware.Insight.Listeners.Email](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/) | **Platforms** - .NET 4.5
+**Package** - [ReflectSoftware.Insight.Listeners.Email](http://www.nuget.org/packages/ReflectSoftware.Insight.Listeners.Email/) | **Platforms** - .NET 4.5.1 and above
 
 ## Overview ##
 
