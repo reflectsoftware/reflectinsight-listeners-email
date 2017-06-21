@@ -30,7 +30,7 @@ ReflectInsight goes beyond where no text-based logging has gone before.</summary
         <copyright>© 2017 ReflectSoftware Inc.</copyright>
         <tags>reflectinsight logging log logfiles events exception handling structured tracing trace debug diagnostic email smtp</tags>
         <dependencies>
-            <dependency id="ReflectSoftware.Insight" version="5.7.0.0" />
+            <dependency id="ReflectSoftware.Insight" version="5.7.1.1" />
         </dependencies>
         <references>
             <reference file="ReflectSoftware.Insight.Listeners.Email.dll" />
